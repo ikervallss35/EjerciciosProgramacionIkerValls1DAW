@@ -1,0 +1,38 @@
+import java.util.ArrayList;
+import java.util.List;
+public class Tutankamon {
+    static class Objeto implements Comparable<Objeto>{
+        int id;
+        String nombre;
+        int valor;
+        int peso;
+
+        public Objeto(int id, String nombre, int valor, int peso) {
+            this.id = id;
+            this.nombre = nombre;
+            this.valor = valor;
+            this.peso = peso;
+        }@Override
+        public String toString(){
+            return id + " - " + nombre + " - " + valor + " - " + peso;
+        }@Override
+        public int compareTo(Objeto other) {
+            if (this.valor ==other.valor && this.peso ==other.peso){
+                return this.id - other.id;
+            }else if(this.valor == other.valor){
+                return this.peso - other.peso;
+            }else {
+                return other.valor - this.valor;
+            }
+        }
+    }public static void main(String[] args) {
+        List<Objeto> inventario = new ArrayList<>();
+        int indice = 0;
+        inventario.add(new Objeto(indice++, "flecha", 5, 1));
+        inventario.add(new Objeto(indice++, "sandalias", 10, 2));
+        inventario.add(new Objeto(indice++, "sarcofago", 1000, 1000));
+        inventario.add(new Objeto(indice++, "mascara", 1000, 10));
+        inventario.add(new Objeto(indice++, "arco", 10, 2));
+        inventario.stream().sorted().forEach(System.out::println);
+    }
+}
