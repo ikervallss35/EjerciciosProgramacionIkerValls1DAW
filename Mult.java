@@ -1,33 +1,19 @@
-import java.util.ArrayList;
-import java.util.List;
-public class Mult {
+import java.util.Arrays;
+import java.util.List;public class Mult {
     public static void main(String[] args) {
-        System.out.println(mult("3 6 8 4 20 7 14"));
-    }public static String mult(String numeros) {
-        String[] partes = numeros.split(" ");
-        List<Integer> listaNumeros = new ArrayList<>();
-        for (String s : partes) {
-            listaNumeros.add(Integer.parseInt(s));
-        }
-        List<Integer> resultado = new ArrayList<>();
-        int i = 0;
-
-        while (i < listaNumeros.size()) {
-            int base = listaNumeros.get(i);
-            boolean encontrado = false;
-
-            for (int j = i + 1; j < listaNumeros.size(); j++) {
-                int num = listaNumeros.get(j);
-                if (num % base == 0) {
-                    resultado.add(num);
-                    encontrado = true;
+        String num = "3 6 8 4 20 7 14";
+        System.out.println(multiplicadores(num));
+    }public static String multiplicadores(String num) {
+        List<String> lista = Arrays.asList(num.split(" "));
+        List<Integer> listaNumeros = lista.stream().map(Integer::parseInt).toList();
+        String mult= "";
+        for (int i = 1; i < listaNumeros.size(); i++) {
+            for (int j = 0; j < i; j++) {
+                if (listaNumeros.get(i) % listaNumeros.get(j) == 0){
+                    mult += listaNumeros.get(i) + " ";
                     break;
                 }
-            }i++;
-        }String salida = "";
-        for (int j = 0; j < resultado.size(); j++) {
-            if (j > 0) salida += " ";
-            salida += resultado.get(j);
-        }return salida;
+            }
+        }return mult;
     }
 }

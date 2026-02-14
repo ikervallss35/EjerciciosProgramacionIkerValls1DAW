@@ -23,8 +23,6 @@ public class NiñosBuenos {
         List<Nino> ninoList = new ArrayList<>();
        ninoList.add(new Nino(80,30));
         ninoList.add(new Nino(80,40));
-        ninoList.add(new Nino(50,30));
-        ninoList.add(new Nino(90,10));
         ninoList.stream().sorted().forEach(System.out::println);
     }
 }

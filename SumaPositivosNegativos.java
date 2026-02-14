@@ -3,15 +3,17 @@ import java.util.List;
 public class SumaPositivosNegativos {
     public static void main(String[] args) {
         List<Integer> numeros = new ArrayList<>(List.of(1, 2, -3, 4, 5));
+        contarPositivosNegativos(numeros);
+    }public static void contarPositivosNegativos(List<Integer> numeros) {
         long positivos = numeros.stream()
-                .filter(number -> number >=0)
+                .filter(n -> n >= 0)
                 .count();
 
         long negativos = numeros.stream()
-                .filter(number -> number <0)
+                .filter(n -> n < 0)
                 .count();
 
         System.out.println("Positivos: " + positivos);
-        System.out.println("Negaitvos: " + negativos);
+        System.out.println("Negativos: " + negativos);
     }
 }

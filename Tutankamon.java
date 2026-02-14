@@ -27,12 +27,11 @@ public class Tutankamon {
         }
     }public static void main(String[] args) {
         List<Objeto> inventario = new ArrayList<>();
-        int indice = 0;
-        inventario.add(new Objeto(indice++, "flecha", 5, 1));
-        inventario.add(new Objeto(indice++, "sandalias", 10, 2));
-        inventario.add(new Objeto(indice++, "sarcofago", 1000, 1000));
-        inventario.add(new Objeto(indice++, "mascara", 1000, 10));
-        inventario.add(new Objeto(indice++, "arco", 10, 2));
+        inventario.add(new Objeto(1, "flecha", 5, 2));
+        inventario.add(new Objeto(2, "sandalias", 10, 2));
+        inventario.add(new Objeto(3, "sarcofago", 1000, 1000));
+        inventario.add(new Objeto(4, "mascara", 1000, 10));
+        inventario.add(new Objeto(5, "arco", 10, 2));
         inventario.stream().sorted().forEach(System.out::println);
     }
 }

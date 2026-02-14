@@ -22,8 +22,6 @@ public class Felipe {
             List<Tarea> tareas = new ArrayList<Tarea>();
             tareas.add(new Tarea(10, 20));
             tareas.add(new Tarea(10, 5));
-            tareas.add(new Tarea(20, 20));
-            tareas.add(new Tarea(5, 20));
             tareas.stream().sorted().forEach(System.out::println);
         }
     }

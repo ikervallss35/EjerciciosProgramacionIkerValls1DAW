@@ -23,8 +23,13 @@ public class Loterias {
         List<Loteria> loterias = new ArrayList<>();
         loterias.add(new Loteria(100, 50));
         loterias.add(new Loteria(200, 300));
-        loterias.add(new Loteria(100, 75));
-        loterias.add(new Loteria(300, 1000));
         loterias.stream().sorted().forEach(System.out::println);
+        boolean justa = true;
+        for (int i = 1; i < loterias.size(); i++) {
+            if (loterias.get(i).ganado < loterias.get(i-1).ganado) {
+                justa = false;
+                break;
+            }
+        }System.out.println(justa ? "SI" : "NO");
     }
 }

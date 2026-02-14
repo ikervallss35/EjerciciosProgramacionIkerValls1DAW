@@ -22,8 +22,6 @@ public class Human {
         List<Humano> humanos = new ArrayList<>();
         humanos.add(new Humano("Ana", 1200));
         humanos.add(new Humano("Luis", 1500));
-        humanos.add(new Humano("Carlos", 1000));
-        humanos.add(new Humano("Marta", 1500));
         humanos.stream().sorted().forEach(System.out::println);
     }
 }

@@ -14,7 +14,7 @@ public class Altura {
         return teclado.nextInt();
     }public static void leerAlturas(int cuantas) {
         Scanner teclado = new Scanner(System.in);
-        System.out.printf("Introduce %d alturas:%n", cuantas);
+        System.out.println("Introduce " + cuantas + " alturas: ");
         for (int i = 0; i < cuantas; i++) {
             alturas.add(teclado.nextDouble());
         }
