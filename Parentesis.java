@@ -1,22 +1,26 @@
+import java.util.Stack;
 public class Parentesis {
     public static void main(String[] args) {
-        String cadena = "()()";
-        if (estaBienParentizado(cadena)) {
-            System.out.println("OK");
+        String cadena = "[{[(hola)]}]";
+        if (esBalanceado(cadena)) {
+            System.out.println("La cadena está bien parentizada");
         } else {
-            System.out.println("MAL");
+            System.out.println("La cadena está mal parentizada");
         }
-    }public static boolean estaBienParentizado(String cadena) {
-        int par = 0;
+    }public static boolean esBalanceado(String cadena) {
+        Stack<Character> stack = new Stack<>();
         for (int i = 0; i < cadena.length(); i++) {
-            if (cadena.charAt(i) == '(') {
-                par++;
-            } else if (cadena.charAt(i) == ')') {
-                par--;
-                if (par < 0) {
-                    break;
+            char c = cadena.charAt(i);
+            if (c == '{' || c == '[' || c == '(') {
+                stack.push(c);
+            }else if (c == '}' || c == ']' || c == ')') {
+                if (stack.isEmpty()){
+                    return false;
+                }Character pop = stack.pop();
+                if ((c == ')' && pop != '(') || (c==']' && pop != '[') || (c=='}' && pop != '{')) {
+                    return false;
                 }
             }
-        }return par == 0;
+        }return stack.isEmpty();
     }
 }
