@@ -1,23 +1,22 @@
 public class Parentesis {
     public static void main(String[] args) {
         String cadena = "()()";
-        if (esParentizada(cadena)){
-            System.out.println("La cadena está bien parentizada");
-        }else{
-            System.out.println("La cadena no está bien parentizada");
+        if (estaBienParentizado(cadena)) {
+            System.out.println("OK");
+        } else {
+            System.out.println("MAL");
         }
-    }public static boolean esParentizada(String cadena){
+    }public static boolean estaBienParentizado(String cadena) {
         int par = 0;
-        for(int i = 0; i < cadena.length(); i++){
-            if(cadena.charAt(i) == '('){
+        for (int i = 0; i < cadena.length(); i++) {
+            if (cadena.charAt(i) == '(') {
                 par++;
-            }else if(cadena.charAt(i) == ')'){
-                par --;
-            }
-            if(par < 0){
-                break;
+            } else if (cadena.charAt(i) == ')') {
+                par--;
+                if (par < 0) {
+                    break;
+                }
             }
         }return par == 0;
     }
-
 }

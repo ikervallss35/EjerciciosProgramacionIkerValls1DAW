@@ -1,13 +1,12 @@
 public class Siglas {
     public static void main(String[] args) {
-        String cadena ="Escuela Oficial de Idiomas";
-        System.out.println(mostrarSiglas(cadena));
-    }public static String mostrarSiglas(String cadena){
+        String nombre = "Escuela Oficial de Idiomas";
+        System.out.println(sacarSiglas(nombre));
+    }public static String sacarSiglas(String nombre) {
         String siglas = "";
-        String [] palabras = cadena.split(" ");
-        for(int i=0; i < palabras.length;i++){
-            if(Character.isUpperCase(palabras[i].charAt(i))){
-                siglas += palabras[i].charAt(i) + " ";
+        for (int i = 0; i < nombre.length(); i++) {
+            if (Character.isUpperCase(nombre.charAt(i))) {
+                siglas = siglas + nombre.charAt(i);
             }
         }return siglas;
     }
